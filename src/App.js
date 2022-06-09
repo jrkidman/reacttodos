@@ -26,7 +26,7 @@ function App() {
 function ToDoComponent() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [importance, setImportance] = useState("");
+  const [importance, setImportance] = useState("Low");
   const [toDoList, setToDoList] = useState([]);
 
   return (
@@ -75,17 +75,20 @@ function ToDoComponent() {
           const updatedToDoList = [...toDoList]
           updatedToDoList.push(newToDo);
           setToDoList(updatedToDoList);
+          console.log(updatedToDoList);
+
           setTitle("");
           setDescription("");
           setImportance("Low");
         }}>Submit</button>
       <hr />
 
+
       {/* display */}
       <div>
-        {toDoList.map((element) => {
+        {toDoList.map((element, index) => {
           return (
-            <div key={element}>
+            <div key={index}>
               <ul>
                 <li>
                   <h2>{element.title}</h2>
@@ -105,7 +108,7 @@ function ToDoComponent() {
 
 
 
-    </div>
+    </div >
   );
 }
 
